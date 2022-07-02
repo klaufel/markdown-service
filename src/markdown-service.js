@@ -6,9 +6,16 @@ function convertMarkdownResponse (response) {
   return contentType.includes('markdown') && response.text()
 }
 
+function formatMarkdownResponseToHtml (data) {
+  const content = marked(data)
+  const head = {}
+
+  return { head, content }
+}
+
 export default function markdownService (url) {
   return axios.get(url)
     .then(convertMarkdownResponse)
-    .then((data) => marked(data))
+    .then(formatMarkdownResponseToHtml)
     .catch(() => null)
 }
