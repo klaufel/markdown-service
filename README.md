@@ -34,7 +34,7 @@ _Daniel_, welcome to the cemetery of forgotten books.
 ```
 
 ```js
-const markdown = await markdownService('//domain.com/awesome-readme.md');
+const markdown = await markdownService('//domain.com/markdown.md')
 
 /*
 {
