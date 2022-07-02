@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { marked } from 'marked'
 
 function convertMarkdownResponse (response) {
@@ -6,7 +7,7 @@ function convertMarkdownResponse (response) {
 }
 
 export default function markdownService (url) {
-  return fetch(url)
+  return axios.get(url)
     .then(convertMarkdownResponse)
     .then((data) => marked(data))
     .catch(() => null)
