@@ -1,0 +1,40 @@
+{
+  "name": "markdown-service",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./lib/markdown-service.js",
+  "module": "./lib/markdown-service.es.js",
+  "modern": "./lib/markdown-service.modern.js",
+  "umd:main": "./lib/markdown-service.umd.js",
+  "unpkg": "./lib/markdown-service.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klaufel/markdown-service.git"
+  },
+  "author": "Juan Carlos Ruiz <klaufel@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/klaufel/markdown-service/issues"
+  },
+  "homepage": "https://github.com/klaufel/markdown-service#readme",
+  "transform": {
+    "\\.[jt]sx?$": "babel-jest"
+  },
+  "scripts": {
+    "build": "microbundle src/*.js",
+    "dev": "microbundle watch src/*.js",
+    "prepublish": "pnpm run -s build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "0.27.2",
+    "marked": "4.0.17"
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.6",
+    "babel-jest": "28.1.2",
+    "jest": "28.1.2",
+    "microbundle": "0.15.0",
+    "standard": "17.0.0"
+  }
+}
