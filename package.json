@@ -23,7 +23,8 @@
   "scripts": {
     "build": "microbundle src/*.js",
     "dev": "microbundle watch src/*.js",
-    "prepublish": "pnpm run -s build",
+    "prepublish": "pnpm run build",
+    "release": "pnnpm run build && pnpm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && pnpm publish",
     "test": "jest"
   },
   "dependencies": {
