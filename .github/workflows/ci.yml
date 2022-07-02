@@ -38,8 +38,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
+      - name: Install dependencies and build
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Generate build
+      - name: Launch test
         run: pnpm test
