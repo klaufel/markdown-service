@@ -1,6 +1,6 @@
 {
   "name": "markdown-service",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "./lib/markdown-service.js",
   "module": "./lib/markdown-service.es.js",
