@@ -5,7 +5,7 @@ const regExp = /^(-{3}(?:\n|\r)([\w\W]+?)(?:\n|\r)-{3})?([\w\W]*)*/
 
 function convertMarkdownResponse (response) {
   const contentType = response.headers.get('Content-Type')
-  return contentType.includes('markdown') && response.text()
+  if (contentType.includes('text')) return response.text()
 }
 
 function getMarkdownFrontMatter (metas) {
@@ -17,14 +17,18 @@ function getMarkdownFrontMatter (metas) {
 }
 
 function formatMarkdownResponseToHtml (data) {
+  if (!data) return null
+
   const { 2: metas, 3: body } = regExp.exec(data)
-  const content = marked(body)
-  const head = getMarkdownFrontMatter(metas)
+  const content = body ? marked(body) : null
+  const head = metas ? getMarkdownFrontMatter(metas) : null
 
   return { head, content }
 }
 
 export default function markdownService (url) {
+  if (!url) return null
+
   return fetch(url)
     .then(convertMarkdownResponse)
     .then(formatMarkdownResponseToHtml)

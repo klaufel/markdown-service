@@ -20,6 +20,10 @@
   "transform": {
     "\\.[jt]sx?$": "babel-jest"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
     "build": "microbundle src/*.js",
     "dev": "microbundle watch src/*.js",

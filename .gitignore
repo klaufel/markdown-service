@@ -2,6 +2,7 @@
 .idea
 .vscode
 *.log
+coverage
 build
 dist
 lib
